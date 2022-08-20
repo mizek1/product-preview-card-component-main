@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+@mobile-width: 375px;
+@desktop-width: 1440px;
+
+@dark-cyan: hsl(158, 36%, 37%);
+@cream: hsl(30, 38%, 92%);
+@very-dark-blue: hsl(212, 21%, 14%);
+@dark-grayish-blue: hsl(228, 12%, 48%);
+@white: hsl(0, 0%, 100%);
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-size: 14px;
+  height: 100vh;
+  width: 100%;
+  background-color: @cream;
+  display: grid;
+  grid-template-rows: 100vh 0 0;
+}
+
+.card {
+  align-self: center;
+  justify-self: center;
+  max-width: 375px;
+  background-color: @white;
+  border-radius: 0.75em;
+
+  &-header {
+    width: 100%;
+
+    &__image {
+      border-radius: 0.75em 0.75em 0 0;
+      min-height: 250px;
+      background-image: url(images/image-product-mobile.jpg);
+      background-size: cover;
+    }
+  }
+
+  &-body {
+    padding: 2em;
+
+    p {
+      line-height: 1.5em;
+      color: @dark-grayish-blue;
+      padding: 1em 0 2em 0;
+      word-break: keep-all;
+    }
+  }
+
+  &-title {
+    font-family: 'Fraunces';
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1em;
+    color: @very-dark-blue;
+    margin-top: 0.25em;
+  }
+
+  &-subtitle {
+    color: @dark-grayish-blue;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+  }
+
+  &-prices {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    &__actual {
+      font-family: 'Fraunces';
+      font-size: 2.5em;
+      color: @dark-cyan;
+    }
+
+    &__old {
+      color: @dark-grayish-blue;
+      text-decoration: line-through;
+    }
+  }
+
+  &-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+    text-align: center;
+    border: 0;
+    border-radius: 0.5em;
+    padding: 1em;
+    background-color: @dark-cyan;
+    color: @white;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @very-dark-blue;
+      transition: all 0.2s ease-in-out;
+      color: @white;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .card {
+    display: flex;
+    align-items: stretch;
+    max-width: 600px;
+
+    &-header {
+      flex: 1 0 50%;
+
+      &__image {
+        height: 100%;
+        border-radius: 1em 0 0 1em;
+        background-image: url(images/image-product-desktop.jpg);
+        background-size: cover;
+      }
+    }
+
+    &-body {
+      flex: 1 1 50%;
+      padding: 2em;
+    }
+  }
+}
